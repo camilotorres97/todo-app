@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">ToDo App</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="create_account">Crear cuenta</string>
+    <string name="email">Correo electrónico</string>
+    <string name="password">Contraseña</string>
+    <string name="forgot_password">Olvidé mi contraseña</string>
+    <string name="remember_user">Recordar mi usuario en este dispositivo</string>
+    <string name="iniciar_sesion">Iniciar Sesión</string>
+    <string name="not_account">No tengo una cuenta</string>
+
+    <!--FRAGMENT ADD_TO_DO XML FILE STRINGS CONFIG -->
+    <string name="add_activity">AGREGAR</string>
+    <string name="select_picture">Seleccione una foto (opcional): </string>
+    <string name="full_name">Nombre completo</string>
+    <string name="sign_up_button">Registrarme</string>
+    <string name="already_have_account">Ya tengo una cuenta</string>
+
+    <!--FRAGMENT PASSWORD_RECOVERY XML FILE STRINGS CONFIG -->
+    <string name="restore_pass">Recuperar contraseña</string>
+</resources>
