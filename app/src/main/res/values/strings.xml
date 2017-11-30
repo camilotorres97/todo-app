@@ -24,4 +24,7 @@
 
     <!--FRAGMENT PASSWORD_RECOVERY XML FILE STRINGS CONFIG -->
     <string name="restore_pass">Recuperar contraseña</string>
+    <string name="iniciar_sesion2">Iniciar Sesión</string>
+    <string name="recuperar_contraseña">Recuperar Contraseña</string>
+    <string name="recover">Recuperar</string>
 </resources>
