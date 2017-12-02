@@ -6,5 +6,7 @@
 
     <color name="forgot_password">#e71919</color>
     <color name="recover">#204fc6</color>
+    <color name="application_background">#8b9dca</color>
+    <color name="background_endcolor">#061335</color>
 
 </resources>
