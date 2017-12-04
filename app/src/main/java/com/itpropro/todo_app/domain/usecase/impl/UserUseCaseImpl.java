@@ -1,5 +1,6 @@
 package com.itpropro.todo_app.domain.usecase.impl;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.itpropro.todo_app.domain.model.User;
 import com.itpropro.todo_app.domain.usecase.UserUseCase;
 import com.itpropro.todo_app.helpers.Callback;
@@ -47,6 +48,23 @@ public class UserUseCaseImpl implements UserUseCase {
         userRepository.signUp(user, new Callback<User>() {
             @Override
             public void sucess(User result) {
+                callback.sucess(user);
+            }
+
+            @Override
+            public void error(Exception error) {
+                callback.error(error);
+            }
+        });
+    }
+
+    @Override
+    public void recoveryPass(final String email, final Callback<User> callback) {
+
+        userRepository.recoveryPass(email, new Callback<User>() {
+            @Override
+            public void sucess(User user) {
+
                 callback.sucess(user);
             }
 

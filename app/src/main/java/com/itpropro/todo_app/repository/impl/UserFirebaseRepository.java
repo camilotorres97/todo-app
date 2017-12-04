@@ -1,6 +1,7 @@
 package com.itpropro.todo_app.repository.impl;
 
 import android.support.annotation.NonNull;
+import android.telecom.Call;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -89,6 +90,13 @@ public class UserFirebaseRepository implements UserRepository {
                         }
                     }
                 });
+
+    }
+
+    @Override
+    public void recoveryPass(final String email, final Callback<User> callback) {
+
+        mAuth.sendPasswordResetEmail(email);
 
     }
 }

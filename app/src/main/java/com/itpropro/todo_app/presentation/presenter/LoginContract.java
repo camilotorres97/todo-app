@@ -14,7 +14,7 @@ public interface LoginContract {
         void showMessageError(Exception error);
     }
 
-    interface  UsersActionsListener{
+    interface UsersActionsListener{
         void onLogin(String email, String password, boolean remember);
     }
 
