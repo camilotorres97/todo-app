@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.itpropro.todo_app.R;
 import com.itpropro.todo_app.helpers.Utilities;
+import com.itpropro.todo_app.presentation.presenter.LoginContract;
 import com.itpropro.todo_app.presentation.presenter.SignUpContract;
 import com.itpropro.todo_app.presentation.presenter.SignUpPresenter;
 import com.itpropro.todo_app.presentation.view.activity.AuthActivity;
@@ -65,6 +66,8 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
                 onSignup();
                 break;
             case R.id.btnAlreadyHaveAccount:
+                //TODO Fix this event action
+                goToLoginFragment();
                 break;
         }
     }
@@ -72,6 +75,8 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
     @Override
     public void goToLoginFragment() {
         getFragmentManager().popBackStack(); //popBackStack Muestra el ultimo fragment mostrado
+        // AuthActivity authActivity = (AuthActivity) getActivity();
+        //authActivity.replaceFragment(LoginFragment.getInstance(), true);
     }
 
     @Override
@@ -96,18 +101,27 @@ public class SignUpFragment extends Fragment implements SignUpContract.View, Vie
                 tilFullName.setError(getString(R.string.is_required));
                 tilFullName.setErrorEnabled(true);
                 result = false;
+            }else{
+                tilFullName.setError(null);
+                tilFullName.setErrorEnabled(false);
             }
 
             if(Utilities.isEmpty(email)){
-                tilFullName.setError(getString(R.string.is_required));
-                tilFullName.setErrorEnabled(true);
+                tilEmail.setError(getString(R.string.is_required));
+                tilEmail.setErrorEnabled(true);
                 result = false;
+            }else{
+                tilEmail.setError(null);
+                tilEmail.setErrorEnabled(false);
             }
 
             if(Utilities.isEmpty(password)){
-                tilFullName.setError(getString(R.string.is_required));
-                tilFullName.setErrorEnabled(true);
+                tilPassword.setError(getString(R.string.is_required));
+                tilPassword.setErrorEnabled(true);
                 result = false;
+            }else{
+                tilPassword.setError(null);
+                tilPassword.setErrorEnabled(false);
             }
 
             if(result){

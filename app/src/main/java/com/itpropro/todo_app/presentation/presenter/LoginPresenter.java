@@ -16,7 +16,7 @@ public class LoginPresenter implements LoginContract.UsersActionsListener{
     private UserUseCase userUseCase;
 
     public LoginPresenter(LoginFragment loginFragment) {
-        this.view = view;
+        this.view = loginFragment;
         this.userUseCase = new UserUseCaseImpl();
     }
 
