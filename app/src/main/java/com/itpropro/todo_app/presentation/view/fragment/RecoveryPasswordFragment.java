@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.itpropro.todo_app.R;
 import com.itpropro.todo_app.helpers.Utilities;
 import com.itpropro.todo_app.presentation.presenter.RecoveryPassContract;
@@ -51,7 +52,7 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.etEmail:
+            case R.id.tvrecover:
                 onRecovery();
                 break;
         }
@@ -71,7 +72,10 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
                 eTEmail.setError(null);
             }
 
-            mActionsListener.onRecovery(email);
+            if(result){
+                mActionsListener.onRecovery(email);
+                goToMainActivity();
+            }
 
         }catch(Exception e){
 

@@ -25,7 +25,7 @@ public class RecoveryPassPresenter implements RecoveryPassContract.UserActionsLi
         userUseCase.recoveryPass(email, new Callback<User>() {
             @Override
             public void sucess(User result) {
-                view.goToLoginFragment();
+                view.goToMainActivity();
             }
 
             @Override

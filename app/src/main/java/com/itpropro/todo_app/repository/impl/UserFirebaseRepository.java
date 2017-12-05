@@ -41,7 +41,7 @@ public class UserFirebaseRepository implements UserRepository {
                         /*If sign in fails, display a message to the user. If Sign in suceeds
                         the auth state Listener will be notified and logic to handle the
                         signed in user can be handled in the Listener*/
-                        if(task.isSuccessful()){
+                        if(task.isSuccessful() && task.getResult() != null){
                             FirebaseUser firebaseUser = task.getResult().getUser();
                             mDatabase.child(firebaseUser.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
