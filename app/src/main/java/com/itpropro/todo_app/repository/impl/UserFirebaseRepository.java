@@ -47,7 +47,7 @@ public class UserFirebaseRepository implements UserRepository {
                                 @Override
                                 public void onDataChange(DataSnapshot dataSnapshot) {
                                     User user = dataSnapshot.getValue(User.class);
-                                    callback.sucess(user);
+                                    callback.success(user);
                                 }
 
                                 @Override
@@ -81,7 +81,7 @@ public class UserFirebaseRepository implements UserRepository {
                                     public void onComplete(@NonNull Task<Void> task) {
                                         //Respuesta de la creación del usuario en FireBaseDatabase
                                         if(task.isSuccessful()){
-                                            callback.sucess(user);
+                                            callback.success(user);
                                         }else{
                                             callback.error(task.getException());
                                         }
@@ -94,9 +94,18 @@ public class UserFirebaseRepository implements UserRepository {
     }
 
     @Override
-    public void recoveryPass(final String email, final Callback<User> callback) {
-
-        mAuth.sendPasswordResetEmail(email);
-
+    public void recoveryPass(String email, final Callback<Boolean> callback) {
+        mAuth.sendPasswordResetEmail(email)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        //Respuesta del envio del correo de recuperacion de contraseña
+                        if(task.isSuccessful()) {
+                            callback.success(true);
+                        } else {
+                            callback.error(task.getException());
+                        }
+                    }
+                });
     }
 }

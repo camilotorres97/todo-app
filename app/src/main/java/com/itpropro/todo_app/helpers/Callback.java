@@ -7,7 +7,7 @@ import com.itpropro.todo_app.domain.model.User;
  */
 
 public interface Callback<T> { //Tipo generico <>
-    void sucess(T result);
+    void success(T result);
 
     void error(Exception error);
 }

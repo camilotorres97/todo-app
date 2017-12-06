@@ -13,5 +13,6 @@ public interface UserRepository {
 
     void signUp(User user, Callback<User> callback);
 
-    void recoveryPass(String email, Callback<User> callback);
+    void recoveryPass(String email, Callback<Boolean> callback);
+
 }

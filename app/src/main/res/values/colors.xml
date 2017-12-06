@@ -8,5 +8,7 @@
     <color name="recover">#e8eaef</color>
     <color name="application_background">#8b9dca</color>
     <color name="background_endcolor">#061335</color>
+    <color name="error_message">#e71919</color>
+    <color name="success_message">#02f102</color>
 
 </resources>

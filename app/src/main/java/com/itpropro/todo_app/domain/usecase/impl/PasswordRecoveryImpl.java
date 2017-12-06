@@ -1,6 +1,5 @@
 package com.itpropro.todo_app.domain.usecase.impl;
 
-import com.google.android.gms.common.ErrorDialogFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.itpropro.todo_app.presentation.presenter.RecoveryPassContract;
 

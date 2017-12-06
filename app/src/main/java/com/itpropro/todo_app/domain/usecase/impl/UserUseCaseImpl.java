@@ -22,13 +22,13 @@ public class UserUseCaseImpl implements UserUseCase {
     @Override
     public void login(String email, String password, final boolean remember, final Callback<User> callback) {
         userRepository.login(email, password, new Callback<User>() {
-            @Override
-            public void sucess(User user) {
 
+            @Override
+            public void success(User user) {
                 if(user != null && remember) {
                     //TODO Guardar Email en SharedPreferences
                 }
-                callback.sucess(user);
+                callback.success(user);
             }
 
             @Override
@@ -46,9 +46,26 @@ public class UserUseCaseImpl implements UserUseCase {
         final User user = new User(fullName,email,password);
 
         userRepository.signUp(user, new Callback<User>() {
+
             @Override
-            public void sucess(User result) {
-                callback.sucess(user);
+            public void success(User result) {
+                callback.success(user);
+            }
+
+            @Override
+            public void error(Exception error) {
+                callback.error(error);
+            }
+        });
+    }
+
+    @Override
+    public void recoveryPassword(String email, final Callback<Boolean> callback) {
+        userRepository.recoveryPass(email, new Callback<Boolean>() {
+
+            @Override
+            public void success(Boolean result) {
+                callback.success(result);
             }
 
             @Override

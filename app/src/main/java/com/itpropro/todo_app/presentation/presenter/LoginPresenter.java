@@ -25,7 +25,7 @@ public class LoginPresenter implements LoginContract.UsersActionsListener{
     public void onLogin(String email, String password, boolean remember) {
         userUseCase.login(email, password, remember, new Callback<User>() {
             @Override
-            public void sucess(User result) {
+            public void success(User result) {
                 view.goToMainActivity();
             }
 

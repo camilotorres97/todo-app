@@ -20,6 +20,7 @@ import com.itpropro.todo_app.presentation.presenter.LoginContract;
 import com.itpropro.todo_app.presentation.presenter.LoginPresenter;
 import com.itpropro.todo_app.presentation.view.activity.AuthActivity;
 import com.itpropro.todo_app.presentation.view.activity.MainActivity;
+import com.itpropro.todo_app.presentation.view.dialog.RecoveryPasswordFragment;
 
 /**
  * A simple {@link Fragment} subclass.

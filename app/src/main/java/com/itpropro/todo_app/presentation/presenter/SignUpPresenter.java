@@ -22,7 +22,7 @@ public class SignUpPresenter implements SignUpContract.UserActionsListener {
     public void onSignUp(String nombre, String email, String password) {
         userUseCase.signUp(nombre, email, password, new Callback<User>() {
             @Override
-            public void sucess(User result) {
+            public void success(User result) {
                 view.goToMainActivity();
             }
 

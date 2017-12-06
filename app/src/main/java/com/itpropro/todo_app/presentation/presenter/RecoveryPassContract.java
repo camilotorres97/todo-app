@@ -7,11 +7,10 @@ package com.itpropro.todo_app.presentation.presenter;
 public interface RecoveryPassContract {
 
     interface View{
-        void goToLoginFragment();
-
-        void goToMainActivity();
 
         void showErrorMessage(Exception error);
+
+        void showSuccessMessage();
     }
 
     interface UserActionsListener{

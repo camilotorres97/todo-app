@@ -1,11 +1,8 @@
 package com.itpropro.todo_app.presentation.presenter;
 
-import com.itpropro.todo_app.domain.model.User;
 import com.itpropro.todo_app.domain.usecase.UserUseCase;
-import com.itpropro.todo_app.domain.usecase.impl.PasswordRecoveryImpl;
 import com.itpropro.todo_app.domain.usecase.impl.UserUseCaseImpl;
 import com.itpropro.todo_app.helpers.Callback;
-import com.itpropro.todo_app.presentation.view.fragment.RecoveryPasswordFragment;
 
 /**
  * Created by PC on 04/12/2017.
@@ -14,15 +11,26 @@ import com.itpropro.todo_app.presentation.view.fragment.RecoveryPasswordFragment
 public class RecoveryPassPresenter implements RecoveryPassContract.UserActionsListener {
 
     private RecoveryPassContract.View view;
-    private RecoveryPassContract.UserActionsListener userUseCase;
+    private UserUseCase userUseCase;
 
-    public RecoveryPassPresenter(RecoveryPasswordFragment recoveryPasswordFragment){
+    public RecoveryPassPresenter(RecoveryPassContract.View recoveryPasswordFragment){
         this.view = recoveryPasswordFragment;
-            userUseCase = new PasswordRecoveryImpl();
+        this.userUseCase = new UserUseCaseImpl();
     }
 
     @Override
-    public void onRecovery(String email) {
-        userUseCase.onRecovery(email);
+    public void onRecovery(String email){
+        userUseCase.recoveryPassword(email, new Callback<Boolean>() {
+
+            @Override
+            public void success(Boolean result) {
+                view.showSuccessMessage();
+            }
+
+            @Override
+            public void error(Exception error) {
+                view.showErrorMessage(error);
+            }
+        });
     }
 }
