@@ -24,6 +24,7 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
     private RecoveryPassContract.UserActionsListener mActionsListener;
     private EditText eTEmail;
     private TextView tvRecover;
+    View view;
 
     public RecoveryPasswordFragment() {
         // Required empty public constructor
@@ -35,9 +36,10 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_password_recovery, container, false);
+    public View onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+        view = LayoutInflater.from(getActivity()).inflate(R.layout.fragment_password_recovery, null);
 
         mActionsListener = new RecoveryPassPresenter(this);
 
@@ -53,12 +55,12 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.tvrecover:
-                onRecovery();
+                mActionsListener.onRecovery(eTEmail.getText().toString());
                 break;
         }
     }
 
-    private void onRecovery(){
+/*    private void onRecovery(){
         try {
             boolean result = true;
             String email = eTEmail.getText().toString();
@@ -80,7 +82,7 @@ public class RecoveryPasswordFragment extends DialogFragment implements Recovery
         }catch(Exception e){
 
         }
-    }
+    }*/
 
     @Override
     public void goToLoginFragment() {
