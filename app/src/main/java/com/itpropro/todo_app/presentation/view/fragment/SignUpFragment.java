@@ -10,14 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.itpropro.todo_app.R;
 import com.itpropro.todo_app.helpers.Utilities;
-import com.itpropro.todo_app.presentation.presenter.LoginContract;
-import com.itpropro.todo_app.presentation.presenter.SignUpContract;
+import com.itpropro.todo_app.presentation.presenter.interfaces.SignUpContract;
 import com.itpropro.todo_app.presentation.presenter.SignUpPresenter;
-import com.itpropro.todo_app.presentation.view.activity.AuthActivity;
 import com.itpropro.todo_app.presentation.view.activity.MainActivity;
 
 /**

@@ -1,9 +1,10 @@
 package com.itpropro.todo_app.presentation.presenter;
 
 import com.itpropro.todo_app.domain.model.User;
-import com.itpropro.todo_app.domain.usecase.UserUseCase;
+import com.itpropro.todo_app.domain.usecase.interfaces.UserUseCase;
 import com.itpropro.todo_app.domain.usecase.impl.UserUseCaseImpl;
 import com.itpropro.todo_app.helpers.Callback;
+import com.itpropro.todo_app.presentation.presenter.interfaces.LoginContract;
 import com.itpropro.todo_app.presentation.view.fragment.LoginFragment;
 
 /**

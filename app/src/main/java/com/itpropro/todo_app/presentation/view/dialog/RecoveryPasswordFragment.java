@@ -1,12 +1,11 @@
 package com.itpropro.todo_app.presentation.view.dialog;
 
-
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,13 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.itpropro.todo_app.R;
-import com.itpropro.todo_app.domain.usecase.UserUseCase;
-import com.itpropro.todo_app.helpers.Callback;
 import com.itpropro.todo_app.helpers.Utilities;
-import com.itpropro.todo_app.presentation.presenter.RecoveryPassContract;
+import com.itpropro.todo_app.presentation.presenter.interfaces.RecoveryPassContract;
 import com.itpropro.todo_app.presentation.presenter.RecoveryPassPresenter;
-import com.itpropro.todo_app.presentation.view.activity.AuthActivity;
-import com.itpropro.todo_app.presentation.view.fragment.LoginFragment;
 
 
     public class RecoveryPasswordFragment extends DialogFragment implements RecoveryPassContract.View,View.OnClickListener {
@@ -88,6 +83,7 @@ import com.itpropro.todo_app.presentation.view.fragment.LoginFragment;
     public void showErrorMessage(Exception error) {
         tvMessage.setText(error.getMessage());
         tvMessage.setTextColor(getResources().getColor(R.color.error_message));
+        tvMessage.setVisibility(view.VISIBLE);
     }
 
     @Override
@@ -112,7 +108,6 @@ import com.itpropro.todo_app.presentation.view.fragment.LoginFragment;
 
             if(result) {
                 mActionsListener.onRecovery(email);
-
             }
         } catch (Exception e) {
             showErrorMessage(e);

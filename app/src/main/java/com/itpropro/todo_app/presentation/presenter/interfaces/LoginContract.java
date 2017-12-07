@@ -1,4 +1,4 @@
-package com.itpropro.todo_app.presentation.presenter;
+package com.itpropro.todo_app.presentation.presenter.interfaces;
 
 /**
  * Created by juank on 30/11/2017.

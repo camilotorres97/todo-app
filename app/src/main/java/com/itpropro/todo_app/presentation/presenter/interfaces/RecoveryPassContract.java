@@ -1,4 +1,4 @@
-package com.itpropro.todo_app.presentation.presenter;
+package com.itpropro.todo_app.presentation.presenter.interfaces;
 
 /**
  * Created by PC on 04/12/2017.
@@ -7,7 +7,6 @@ package com.itpropro.todo_app.presentation.presenter;
 public interface RecoveryPassContract {
 
     interface View{
-
         void showErrorMessage(Exception error);
 
         void showSuccessMessage();

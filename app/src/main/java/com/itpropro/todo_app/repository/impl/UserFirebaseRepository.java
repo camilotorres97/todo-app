@@ -1,7 +1,6 @@
 package com.itpropro.todo_app.repository.impl;
 
 import android.support.annotation.NonNull;
-import android.telecom.Call;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -15,7 +14,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.itpropro.todo_app.domain.model.User;
 import com.itpropro.todo_app.helpers.Callback;
-import com.itpropro.todo_app.repository.UserRepository;
+import com.itpropro.todo_app.repository.interfaces.UserRepository;
 
 /**
  * Created by juank on 30/11/2017.

@@ -1,4 +1,4 @@
-package com.itpropro.todo_app.repository;
+package com.itpropro.todo_app.repository.interfaces;
 
 import com.itpropro.todo_app.domain.model.User;
 import com.itpropro.todo_app.helpers.Callback;

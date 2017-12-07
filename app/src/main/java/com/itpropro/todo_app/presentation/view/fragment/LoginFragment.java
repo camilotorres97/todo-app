@@ -1,11 +1,9 @@
 package com.itpropro.todo_app.presentation.view.fragment;
 
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
-//import android.app.Fragment;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +14,7 @@ import android.widget.TextView;
 
 import com.itpropro.todo_app.R;
 import com.itpropro.todo_app.helpers.Utilities;
-import com.itpropro.todo_app.presentation.presenter.LoginContract;
+import com.itpropro.todo_app.presentation.presenter.interfaces.LoginContract;
 import com.itpropro.todo_app.presentation.presenter.LoginPresenter;
 import com.itpropro.todo_app.presentation.view.activity.AuthActivity;
 import com.itpropro.todo_app.presentation.view.activity.MainActivity;
@@ -93,7 +91,9 @@ public class LoginFragment extends Fragment implements LoginContract.View, View.
 
     public void goToRecoveryPassword(){
         RecoveryPasswordFragment recoveryPasswordFragment = RecoveryPasswordFragment.getInstance();
-        recoveryPasswordFragment.show(getFragmentManager(),null);
+        recoveryPasswordFragment.show(getFragmentManager(), null);
+        //AuthActivity authActivity = (AuthActivity) getActivity();
+        //authActivity.replaceFragment(recoveryPasswordFragment, true);
     }
 
     @Override

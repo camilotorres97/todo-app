@@ -1,14 +1,13 @@
 package com.itpropro.todo_app.presentation.view.activity;
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.itpropro.todo_app.R;
-import com.itpropro.todo_app.presentation.presenter.AuthContract;
+import com.itpropro.todo_app.presentation.presenter.interfaces.AuthContract;
 import com.itpropro.todo_app.presentation.presenter.AuthPresenter;
 import com.itpropro.todo_app.presentation.view.fragment.LoginFragment;
 

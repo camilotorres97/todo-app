@@ -1,6 +1,7 @@
 package com.itpropro.todo_app.presentation.presenter;
 
-import com.itpropro.todo_app.presentation.presenter.AuthContract.UserActionsLister;
+import com.itpropro.todo_app.presentation.presenter.interfaces.AuthContract;
+import com.itpropro.todo_app.presentation.presenter.interfaces.AuthContract.UserActionsLister;
 
 /**
  * Created by juank on 30/11/2017.
