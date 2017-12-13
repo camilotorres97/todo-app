@@ -1,7 +1,5 @@
 package com.itpropro.todo_app.helpers;
 
-import com.google.android.gms.tasks.Task;
-
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;

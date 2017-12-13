@@ -5,7 +5,6 @@ import com.itpropro.todo_app.domain.usecase.impl.ToDoUseCaseImpl;
 import com.itpropro.todo_app.domain.usecase.interfaces.ToDoUseCase;
 import com.itpropro.todo_app.helpers.Callback;
 import com.itpropro.todo_app.presentation.presenter.interfaces.ToDoListContract;
-import com.itpropro.todo_app.repository.impl.ToDoLocalRepository;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +46,6 @@ public class ToDoListPresenter implements ToDoListContract.UserActionsListener {
 
     @Override
     public List<Todo> getToDosList() {
-        return null;
+        return todoList;
     }
 }

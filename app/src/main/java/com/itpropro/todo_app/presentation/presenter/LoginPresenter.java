@@ -1,11 +1,14 @@
 package com.itpropro.todo_app.presentation.presenter;
 
+import com.itpropro.todo_app.domain.model.Todo;
 import com.itpropro.todo_app.domain.model.User;
 import com.itpropro.todo_app.domain.usecase.interfaces.UserUseCase;
 import com.itpropro.todo_app.domain.usecase.impl.UserUseCaseImpl;
 import com.itpropro.todo_app.helpers.Callback;
 import com.itpropro.todo_app.presentation.presenter.interfaces.LoginContract;
 import com.itpropro.todo_app.presentation.view.fragment.LoginFragment;
+
+import java.util.List;
 
 /**
  * Created by juank on 30/11/2017.
@@ -26,7 +29,7 @@ public class LoginPresenter implements LoginContract.UsersActionsListener{
     public void onLogin(String email, String password, boolean remember) {
         userUseCase.login(email, password, remember, new Callback<User>() {
             @Override
-            public void success(User result) {
+            public void success(List<Todo> result) {
                 view.goToMainActivity();
             }
 

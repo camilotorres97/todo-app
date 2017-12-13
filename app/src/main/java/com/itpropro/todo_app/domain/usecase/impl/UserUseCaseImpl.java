@@ -1,10 +1,13 @@
 package com.itpropro.todo_app.domain.usecase.impl;
 
+import com.itpropro.todo_app.domain.model.Todo;
 import com.itpropro.todo_app.domain.model.User;
 import com.itpropro.todo_app.domain.usecase.interfaces.UserUseCase;
 import com.itpropro.todo_app.helpers.Callback;
 import com.itpropro.todo_app.repository.interfaces.UserRepository;
 import com.itpropro.todo_app.repository.impl.UserFirebaseRepository;
+
+import java.util.List;
 
 /**
  * Created by juank on 2/12/2017.
@@ -23,7 +26,7 @@ public class UserUseCaseImpl implements UserUseCase {
         userRepository.login(email, password, new Callback<User>() {
 
             @Override
-            public void success(User user) {
+            public void success(List<Todo> user) {
                 if(user != null && remember) {
                     //TODO Guardar Email en SharedPreferences
                 }
@@ -47,7 +50,7 @@ public class UserUseCaseImpl implements UserUseCase {
         userRepository.signUp(user, new Callback<User>() {
 
             @Override
-            public void success(User result) {
+            public void success(List<Todo> result) {
                 callback.success(user);
             }
 
@@ -63,7 +66,7 @@ public class UserUseCaseImpl implements UserUseCase {
         userRepository.recoveryPass(email, new Callback<Boolean>() {
 
             @Override
-            public void success(Boolean result) {
+            public void success(List<Todo> result) {
                 callback.success(result);
             }
 

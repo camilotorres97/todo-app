@@ -34,20 +34,25 @@ public class ToDoLocalRepository implements ToDoRepository {
     }
 
     @Override
-    public void insert(Todo todo) {
+    public Long insert(Todo todo) {
         AppDatabase db = AppDatabase.getInstance();
         ToDoDao toDoDao = db.todoDao();
         toDoDao.insert(todo);
+        return null;
     }
 
     @Override
     public void update(Todo todo) {
-        //TODO IMPLEMENTAR
+        AppDatabase db = AppDatabase.getInstance();
+        ToDoDao toDoDao = db.todoDao();
+        toDoDao.update(todo);
     }
 
     @Override
     public void delete(Todo todo) {
-        //TODO IMPLEMENTAR
+        AppDatabase  db = AppDatabase.getInstance();
+        ToDoDao toDoDao = db.todoDao();
+        toDoDao.delete(todo);
     }
 
     @Override

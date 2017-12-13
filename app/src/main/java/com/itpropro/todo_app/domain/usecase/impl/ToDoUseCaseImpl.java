@@ -29,7 +29,8 @@ public class ToDoUseCaseImpl implements ToDoUseCase {
             @Override
             public Todo execute() throws Exception{
                 Todo todo = new Todo(description,finishDate, finished, image, color);
-                toDoRepository.insert(todo);
+                Long id = toDoRepository.insert(todo);
+                todo.setId(id.intValue());
                 return todo;
             }
 
@@ -46,17 +47,62 @@ public class ToDoUseCaseImpl implements ToDoUseCase {
 
 
     @Override
-    public void update(Todo todo, Callback<Todo> callback) {
+    public void update(final Todo todo, final Callback<Todo> callback) {
+        new ThreadExecutor<Todo>(new ThreadExecutor.Task<Todo>() {
+            @Override
+            public Todo execute() throws Exception {
+                toDoRepository.update(todo);
+                return todo;
+            }
 
+            @Override
+            public void finish(Exception error, Todo result) {
+                if(error != null){
+                    callback.error(error);
+                }else{
+                    callback.success(result);
+                }
+            }
+        }).execute();
     }
 
     @Override
-    public void delete(Todo todo, Callback<Boolean> callback) {
+    public void delete(final Todo todo, final Callback<Boolean> callback) {
+        new ThreadExecutor<Boolean>(new ThreadExecutor.Task<Boolean>() {
+            @Override
+            public Boolean execute() throws Exception {
+                toDoRepository.delete(todo);
+                return true;
+            }
 
+            @Override
+            public void finish(Exception error, Boolean result) {
+                if(error != null){
+                    callback.error(error);
+                }else{
+                    callback.success(result);
+                }
+            }
+        }).execute();
     }
 
     @Override
-    public void getAll(Callback<List<Todo>> callback) {
+    public void getAll(final Callback<List<Todo>> callback) {
+        new ThreadExecutor<List<Todo>>(new ThreadExecutor.Task<List<Todo>>() {
 
+            @Override
+            public List<Todo> execute() throws Exception {
+                return toDoRepository.getAll();
+            }
+
+            @Override
+            public void finish(Exception error, List<Todo> result) {
+                if(error != null){
+                    callback.error(error);
+                }else{
+                    callback.success(result);
+                }
+            }
+        }).execute();
     }
 }
